@@ -1,0 +1,64 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+struct node*pre;
+struct node*next;
+int data;
+};
+struct node* addtoempty(struct node* head, int data)
+{
+    struct node*temp=malloc(sizeof(struct node));
+    temp->pre=NULL;
+    temp->data=data;
+    temp->next=NULL;
+    head=temp;
+    return head;
+};
+struct node* addtobeg(struct node*head,int data)
+{
+    struct node*temp=malloc(sizeof(struct node));
+    temp->pre=NULL;
+    temp->data=data;
+    temp->next=NULL;
+    temp->next=head;
+    head->pre=temp;
+    if(head!=NULL)
+    {
+
+        head->pre=temp;
+    }
+    head = temp;
+    return head;
+
+};
+struct node*addatpos(struct node*head,int data,int pos)
+{
+
+    struct node*newnode=malloc(sizeof(struct node));
+    newnode->next=NULL;
+    newnode->pre=NULL;
+    newnode->data=data;
+    if(pos==1)
+        newnode->next=head;
+    if(head!=NULL)
+        head->pre=newnode;
+}
+struct node*temp=head;
+for(int i=1;i<pos-1;&&temp!=null;i++)
+{
+
+    temp=temp->next;
+}
+newnode->next=temp->next;
+newnode->pre=temp;
+if(temp->next!=null)
+{
+temp->next->pre=newnode;
+
+}
+temp->next=newnode;
+return head;
+
+
+
+
